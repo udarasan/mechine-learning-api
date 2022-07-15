@@ -12,7 +12,7 @@ def index():
     return "<p>Hello, World!</p>"
 
 
-@application.route("/login",methods=['GET'])
+@application.route("/login",methods=['POST'])
 @cross_origin(supports_credentials=True)
 def login():
     
