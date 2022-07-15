@@ -1,9 +1,11 @@
 from email.mime import application
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 import pickle
 import numpy as np
-application = Flask(__name__)
 
+application = Flask(__name__)
+CORS(application, support_credentials=True)
 
 @application.route("/")
 def index():
@@ -11,6 +13,7 @@ def index():
 
 
 @application.route("/login",methods=['GET'])
+@cross_origin(supports_credentials=True)
 def login():
     
     data=request.get_json(force=True)
